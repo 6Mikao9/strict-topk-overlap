@@ -1,0 +1,72 @@
+{
+  "note": "Published source snapshot. Run manifests retain their original source snapshots. Listed report-generator changes were not timed; the vendor adapter was completed after confirm_manifest, whose stages did not execute it. Signed runs were rerun after the graph input-lifetime fix and include post-timing FP64 validation.",
+  "source_sha256": {
+    "strict_topk/__init__.py": "6dd0d04b956a99feb36db3121aac44e3288381e30e9174f25d083eaba58f73f1",
+    "strict_topk/fused.py": "8120dca503a0e928aeba941fb5f2da32a67a545d3ce06d4753861cf62f82571f",
+    "strict_topk/gqa.py": "9fe28757a9315851c4892b1d3f48da906e67098ee2296bd59072b49a2057e851",
+    "strict_topk/gqa_light.py": "cdfab2f24abaa668507c4064a0339459b7295ae2addd856dd49bd29b89e58bd4",
+    "strict_topk/kernels.py": "d30aa539989b3a5552dc304797f168a60c11540b8c12d11cce74cef84138399d",
+    "strict_topk/selector.py": "9e75c2aab5f8573c57dbff28d46074de6669ff682126f4514a6c7778f9773b40",
+    "strict_topk/signed_fused.py": "0a6a3f44a6e5cc409c490142c609934ada94fb5780c76250a2b415eba714cea9",
+    "strict_topk/signed_repair.py": "445c9f698211940f3ee24d2948090d192ef6bfac9d0e4c4ceb45ee25a0ee2eb1",
+    "tests/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "tests/check_correctness.py": "b3ff05498f77ad0cc26fabf9767f426f1bf6eca7b447f2d00d4549fee4f0270e",
+    "tests/check_gqa.py": "34c9dd2dc3685ee07db95005c7b10c3341e20df1427c7381996fc577d7aaf18a",
+    "tests/check_gqa_light.py": "07c4ee944d438a3999804e4b535b72ef31d58ce9c424e9f7bb0f6758db49c4cf",
+    "tests/check_selector.py": "24135c9085e6a7f1b12abee0153652c17d9b495699f0f6895b180fc7779a99f8",
+    "tests/check_signed_fused.py": "4d24503b6412d32e0859a82e5639108b5dfbc1017a87002459c6c4258efd5a4c",
+    "tests/check_signed_repair.py": "2f3c34c5538db09c957b99e44d4f2dcf287e911a59eb04318b3fadb03985ff2f",
+    "benchmarks/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "benchmarks/critical_path.py": "9a7bcf2b8a420379d2bf4c1021455bf526a4e17119f9f5e4fff7f0eae8e39683",
+    "benchmarks/fusion_benchmark.py": "e0f752ab40a9b68ad00c0867c011359d9043af6c0fd7ee1d8c27691885f0f046",
+    "benchmarks/graph_benchmark.py": "6f9d5b84264e04c6be5756e152b2d13e1ee5d0f1d002d89264518d8babd772b3",
+    "benchmarks/guard_ablation.py": "294888b28ceb42116e247021cd81c9462c9c82d9db91ace27e7c5e2a30db36aa",
+    "benchmarks/methodology_audit.py": "f9c0d07dd7cc4439fdbe81dcb623b367bbe82b9c8130fdf49aa6ebc1cec30d6a",
+    "benchmarks/paired_confirm.py": "0996caced133eecc63bffcfc1cb15e25a851a1e6eb77ff59ec0009740a322fe2",
+    "benchmarks/pareto_benchmark.py": "1c6d6674d4bc302117104e2aff82d00cec4380bd71becc552be46c9d4ca4b887",
+    "benchmarks/run_benchmark.py": "f7eef79649e2026e7138ad5f7384594a3d38221fb683257068a99e48695ff784",
+    "benchmarks/signed_benchmark.py": "a6f305eb68af654e9ece562c70f4a0c71231da98105dbec8e77654ae669291e1",
+    "benchmarks/signed_fused_benchmark.py": "04010db8d63f29883535a1eec2a3bab9291e4fc0e549a6259921ee1ed8cfa5cf",
+    "benchmarks/summarize.py": "f2947b7d6c1345401427e238d02b5418e4fa0af486fd088fb78b38802abaf163",
+    "benchmarks/summarize_round2.py": "87f8b1ff6b3881dd3ecd692acb09e4c21b357c69214196b83db25d07b73655e5",
+    "benchmarks/summarize_signed.py": "f3211c25342ff595ccce69e8008ff983b33561730824e5ea28b335eb304bc30b",
+    "benchmarks/vendor_baseline.py": "fa9d433e2a55e8e4c0d02ea4889a40fbc0f71e1e73176f14f5af8195233a7d42",
+    "experiments/run_round2.py": "5dbd13a0472ca863be71122104d61af37511a75a2c89397160b207367fd73ed2",
+    "experiments/run_round2_confirm.py": "e61a528d74e5eeeb9945028d0db6231f0cf86c20e37438fcc8b8eef14427b96d",
+    "experiments/run_signed.py": "7e8c28f9b6dd1d1a31b3773f265cc8aa33a093512f5de71292bccb433961aa9f",
+    "experiments/run_signed_fused.py": "c62df87e37e6bd015471dcebbb647b4906a24ef1d0e34374e406f4c3584cf685",
+    "experiments/run_suite.py": "f065cad4e6187d6ebf09e9875a3381938dae91bd84b41eb23e82c3c56bba992e",
+    "experiments/trace_paired.py": "9b69fbbf98a131ca4b95e57e4be3be4a518b18a3e899586bea85adbce7b1da45",
+    "experiments/trace_replay.py": "8d4b5dec9f112708bc8d90cce92aa21e17c233725e5212bb4e0f68a124eeffb9",
+    "experiments/trace_round2.py": "c4c8dffe9bfa672454f43b837352ff7676c40587b76a9d4ac65c01e789f7edb7",
+    "experiments/trace_signed.py": "b498e4200cded4b97df20b609274192d7ce47562aef432ec40001e02d7499056",
+    "experiments/trace_signed_fused.py": "dca43e58ec7565f929a0431c9944efe4455445fae10114a8d95cf5649e4d1965"
+  },
+  "changed_since_run_snapshot": {
+    "run_manifest": [
+      "benchmarks/summarize.py"
+    ],
+    "confirm_manifest": [
+      "benchmarks/summarize.py",
+      "benchmarks/vendor_baseline.py"
+    ],
+    "signed_manifest": [
+      "benchmarks/summarize.py"
+    ],
+    "signed_fused_manifest": [
+      "benchmarks/summarize.py"
+    ]
+  },
+  "validated_signed_cases": {
+    "signed_20261103.json": 6,
+    "signed_20261104.json": 6,
+    "signed_20261105.json": 6,
+    "signed_fused_20261103.json": 6,
+    "signed_fused_20261104.json": 6,
+    "signed_fused_20261105.json": 6,
+    "trace_signed_fused_large.json": 6,
+    "trace_signed_fused_small.json": 6,
+    "trace_signed_large.json": 6,
+    "trace_signed_small.json": 6
+  }
+}

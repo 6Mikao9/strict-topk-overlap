@@ -12,7 +12,7 @@
 
 当前官方仓库已有 `flash_attn_with_sparse_block_table_partials()`：为各块保存 FP32 输出及 log-sum-exp，正式选择后仅合并命中块并补算漏块。该接口注释直接描述这一用途。因此“保存全部逐块状态后筛选合并”是已有公开基线，不是本项目的新颖性主张。
 
-来源：[官方 README](https://github.com/Tianyu9748/Incremental_FlashAttention)、[接口源码](https://github.com/Tianyu9748/Incremental_FlashAttention/blob/main/hopper/flash_attn_interface.py#L969)。这些链接指向核查时的主分支，不能作为某个固定历史提交的证明；本项目没有验证原仓库全部内核。
+来源：[官方 README](https://github.com/Tianyu9748/Incremental_FlashAttention/blob/cfc2c41ffcf395d1f9bb373f4fea0d96e0fe247c/README.md)、[接口源码](https://github.com/Tianyu9748/Incremental_FlashAttention/blob/cfc2c41ffcf395d1f9bb373f4fea0d96e0fe247c/hopper/flash_attn_interface.py#L1018)。第二轮已按此固定提交核查 Python 与 CUDA 路径；逐块入口仍付出内部归并成本，具体约束见 [实现审查](prr_implementation.md)。本项目没有编译运行原仓库全部内核。
 
 本次待验证部分是：只独立保留高 attention 质量块，将其余块聚合；选择完成后丢弃独立误块、从聚合组撤销误块，并通过数值风险检查触发重算。若原型先物化全部逐块状态再压缩，它只能验证算法及压缩后状态大小，不能证明减少了实际峰值内存或首次写回流量。
 

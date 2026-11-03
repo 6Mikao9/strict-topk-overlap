@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-03",
+  "gpu": "One prechecked idle A100-SXM4-80GB device 1",
+  "source_sha256": {
+    "strict_topk/__init__.py": "6dd0d04b956a99feb36db3121aac44e3288381e30e9174f25d083eaba58f73f1",
+    "strict_topk/fused.py": "8120dca503a0e928aeba941fb5f2da32a67a545d3ce06d4753861cf62f82571f",
+    "strict_topk/gqa.py": "9fe28757a9315851c4892b1d3f48da906e67098ee2296bd59072b49a2057e851",
+    "strict_topk/kernels.py": "d30aa539989b3a5552dc304797f168a60c11540b8c12d11cce74cef84138399d",
+    "strict_topk/selector.py": "9e75c2aab5f8573c57dbff28d46074de6669ff682126f4514a6c7778f9773b40",
+    "tests/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "tests/check_correctness.py": "b3ff05498f77ad0cc26fabf9767f426f1bf6eca7b447f2d00d4549fee4f0270e",
+    "tests/check_gqa.py": "34c9dd2dc3685ee07db95005c7b10c3341e20df1427c7381996fc577d7aaf18a",
+    "tests/check_selector.py": "24135c9085e6a7f1b12abee0153652c17d9b495699f0f6895b180fc7779a99f8",
+    "benchmarks/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "benchmarks/critical_path.py": "9a7bcf2b8a420379d2bf4c1021455bf526a4e17119f9f5e4fff7f0eae8e39683",
+    "benchmarks/fusion_benchmark.py": "e0f752ab40a9b68ad00c0867c011359d9043af6c0fd7ee1d8c27691885f0f046",
+    "benchmarks/graph_benchmark.py": "6f9d5b84264e04c6be5756e152b2d13e1ee5d0f1d002d89264518d8babd772b3",
+    "benchmarks/guard_ablation.py": "294888b28ceb42116e247021cd81c9462c9c82d9db91ace27e7c5e2a30db36aa",
+    "benchmarks/pareto_benchmark.py": "1c6d6674d4bc302117104e2aff82d00cec4380bd71becc552be46c9d4ca4b887",
+    "benchmarks/run_benchmark.py": "f7eef79649e2026e7138ad5f7384594a3d38221fb683257068a99e48695ff784",
+    "benchmarks/summarize.py": "dfe7811174e1b717e3a971dd7aac10df569f8966aa0f58e103b4e1c479235dbb",
+    "experiments/run_round2.py": "5dbd13a0472ca863be71122104d61af37511a75a2c89397160b207367fd73ed2",
+    "experiments/run_suite.py": "f065cad4e6187d6ebf09e9875a3381938dae91bd84b41eb23e82c3c56bba992e",
+    "experiments/trace_replay.py": "8d4b5dec9f112708bc8d90cce92aa21e17c233725e5212bb4e0f68a124eeffb9",
+    "experiments/trace_round2.py": "c4c8dffe9bfa672454f43b837352ff7676c40587b76a9d4ac65c01e789f7edb7"
+  },
+  "stages": [
+    {
+      "name": "gqa_correctness",
+      "module": "tests.check_gqa",
+      "returncode": 0,
+      "wall_seconds": 3.6304873037151992
+    },
+    {
+      "name": "synthetic_20261103",
+      "module": "benchmarks.critical_path",
+      "returncode": 0,
+      "wall_seconds": 28.43199125211686
+    },
+    {
+      "name": "synthetic_20261104",
+      "module": "benchmarks.critical_path",
+      "returncode": 0,
+      "wall_seconds": 21.338869751431048
+    },
+    {
+      "name": "synthetic_20261105",
+      "module": "benchmarks.critical_path",
+      "returncode": 0,
+      "wall_seconds": 21.261984006036073
+    },
+    {
+      "name": "trace_small",
+      "module": "experiments.trace_round2",
+      "returncode": 0,
+      "wall_seconds": 113.03953729011118
+    },
+    {
+      "name": "trace_large",
+      "module": "experiments.trace_round2",
+      "returncode": 0,
+      "wall_seconds": 40.720845095813274
+    }
+  ]
+}
