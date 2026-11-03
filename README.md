@@ -10,6 +10,8 @@
 
 第一轮严格分离/融合路径分别通过 304 项 FP64 对照检查；融合使紧凑修正阶段的 p95 改善 1.05–1.60×，但 compact 完整路径没有净收益。允许额外质量可以少做撤销，目前仍未得到优于串行基线的实用精度—速度折中。
 
+新增 [选择窗口与预测预算报告](docs/window_results.md)：先测串行 `score + topk` 与 attention，仅对选择较快的配置添加合成 GPU 工作至约 1:1，并在相同串行对照中计入它。三个种子、90 个测点仍未获得超过所测 FlashInfer 适配基线的净收益。FlashNext/QSA 部分采用公开形状和独立评分内核的随机输入，没有加载其模型权重。另用 dense Qwen3-4B 轨迹比较上一步、前一层与排名混合；取前 51/64 块把跨步预测精确率（命中数/预测数）从 74.3% 提高到 81.6%，覆盖率降到 65.0%，尚不能据此认定这一预算最快。
+
 ## 方法
 
 - `saved`：每个预测块保存 FP32 softmax 状态，只合并命中块并补算漏块。
@@ -18,6 +20,7 @@
 - `repair_fused`：在一个 kernel 中做集合判定、错块扣除、漏块补算、合并及保护性重算，减少选择完成后的修正尾部。
 - `gqa` / `gqa_light`：直接读取共享 KV 头；分别提供分块并行修复、每头单次启动修复及基于漏块估计的调度。估计错误只影响性能，两条分支都计算严格 Top-K。
 - `signed_fused`：漏选块与需撤销的低质量错块共用一个按块并行的 QK/V kernel，分别带正负号；另做任务排布和带守卫的状态合并，总计三次启动。合并内包含必要的严格回退。[加减融合实验](docs/signed_results.md)
+- `gqa_hierarchical`：对四-token 小块按 8 块/CTA 打包计算，保留逐块状态并分层归并；共享选集时复用一份匹配表。与同轮旧实现比较，QSA 形状 attention 阶段从约 425 µs 降到 26 µs；这是注意力内核对照，不是模型解码收益。
 - `select_blocks`：融合 min/max 界打分，避免大尺寸逐元素中间张量，随后执行 `torch.topk`。融合/预算/真实回放实验及其串行基线均使用这一选择器。
 - 可选 `max_extra_mass`：对低质量误选块计算质量占比上界，小于预算时保留它们，跳过重读撤销。它控制额外 softmax 质量，不直接保证输出相对误差或任务准确率。
 
@@ -52,6 +55,10 @@ python benchmarks/summarize_round2.py
 python -m experiments.run_signed --model-small /path/to/Qwen3-0.6B-Base --model-large /path/to/Qwen3-4B
 python -m experiments.run_signed_fused --model-small /path/to/Qwen3-0.6B-Base --model-large /path/to/Qwen3-4B
 python benchmarks/summarize_signed.py
+python -m tests.check_gqa_hierarchical
+python -m experiments.run_window --model /path/to/Qwen3-4B
+python -m benchmarks.summarize_window
+python -m benchmarks.plot_predictor
 ```
 
 真实 Qwen Q/K/V 回放使用仓库内自写公开提示词和上一解码步的选择列表。模型仍执行 dense generation；回放只处理完整的 32-token 块。第一轮展开 GQA KV，第二轮保持共享 KV 头的原生布局。两轮均不代表稀疏模型推理质量。

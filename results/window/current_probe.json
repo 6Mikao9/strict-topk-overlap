@@ -1,0 +1,530 @@
+{
+  "environment": {
+    "python": "3.10.12",
+    "torch": "2.8.0+cu128",
+    "triton": "3.4.0",
+    "cuda_runtime": "12.8",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "gpu_total_memory_bytes": 85093777408,
+    "compute_capability": [
+      8,
+      0
+    ],
+    "float32_matmul_precision": "highest",
+    "timing": "CUDA Graph; shuffled stage order, 200 replays per event interval, seven rounds",
+    "selector": "See per-case selector implementation",
+    "limitations": [
+      "Synthetic Q/K/V, no model run or trained indexer",
+      "Preparation and graph capture excluded; batch means are not request-tail samples"
+    ]
+  },
+  "scope": "Synthetic one-query decode stage probe; not a model run",
+  "source_sha256": "4c9d0316f709fbc81c7fb09edd954f28bff3816162fd96cca5698d1a73037f2c",
+  "experiments": [
+    {
+      "config": {
+        "kind": "current",
+        "context": 16384,
+        "topk": 64,
+        "heads": 16,
+        "kv_heads": 8,
+        "dim": 128,
+        "block_size": 32,
+        "selector": "Current Quest-style per-head min/max bound plus torch.topk",
+        "seed": 20261103,
+        "hierarchical": false
+      },
+      "serial_probe": {
+        "raw_rounds": [
+          {
+            "round": 0,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.051363840103149414,
+              "attention": 0.024284160137176512,
+              "selector": 0.02806272029876709
+            }
+          },
+          {
+            "round": 1,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.051384320259094236,
+              "attention": 0.02422784090042114,
+              "selector": 0.02805759906768799
+            }
+          },
+          {
+            "round": 2,
+            "order": [
+              "serial",
+              "selector",
+              "attention"
+            ],
+            "ms": {
+              "serial": 0.05137919902801514,
+              "selector": 0.0280729603767395,
+              "attention": 0.024248321056365967
+            }
+          },
+          {
+            "round": 3,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.05139455795288086,
+              "attention": 0.024238080978393556,
+              "selector": 0.0280678391456604
+            }
+          },
+          {
+            "round": 4,
+            "order": [
+              "selector",
+              "attention",
+              "serial"
+            ],
+            "ms": {
+              "selector": 0.0280729603767395,
+              "attention": 0.02422784090042114,
+              "serial": 0.05135359764099121
+            }
+          },
+          {
+            "round": 5,
+            "order": [
+              "serial",
+              "selector",
+              "attention"
+            ],
+            "ms": {
+              "serial": 0.04563968181610108,
+              "selector": 0.022952959537506104,
+              "attention": 0.019809279441833496
+            }
+          },
+          {
+            "round": 6,
+            "order": [
+              "attention",
+              "serial",
+              "selector"
+            ],
+            "ms": {
+              "attention": 0.01979904055595398,
+              "serial": 0.04210175991058349,
+              "selector": 0.022942719459533693
+            }
+          }
+        ],
+        "median_ms": {
+          "selector": 0.02806272029876709,
+          "attention": 0.02422784090042114,
+          "serial": 0.051363840103149414
+        },
+        "replays_per_interval": 200,
+        "selector_over_attention_by_round": [
+          1.155597728735366,
+          1.158072615013758,
+          1.1577280056414232,
+          1.158005832668056,
+          1.1587066504242862,
+          1.1586973471146933,
+          1.1587793557316768
+        ],
+        "median_selector_over_attention": 1.158072615013758
+      },
+      "passed": true
+    },
+    {
+      "config": {
+        "kind": "current",
+        "context": 32768,
+        "topk": 64,
+        "heads": 16,
+        "kv_heads": 8,
+        "dim": 128,
+        "block_size": 32,
+        "selector": "Current Quest-style per-head min/max bound plus torch.topk",
+        "seed": 20261103,
+        "hierarchical": false
+      },
+      "serial_probe": {
+        "raw_rounds": [
+          {
+            "round": 0,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.05389823913574219,
+              "attention": 0.019870719909667968,
+              "selector": 0.0341811203956604
+            }
+          },
+          {
+            "round": 1,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.05386240005493164,
+              "attention": 0.019845119714736938,
+              "selector": 0.03417088031768799
+            }
+          },
+          {
+            "round": 2,
+            "order": [
+              "serial",
+              "selector",
+              "attention"
+            ],
+            "ms": {
+              "serial": 0.05387263774871826,
+              "selector": 0.03417088031768799,
+              "attention": 0.01985535979270935
+            }
+          },
+          {
+            "round": 3,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.053867521286010744,
+              "attention": 0.019850239753723145,
+              "selector": 0.0341811203956604
+            }
+          },
+          {
+            "round": 4,
+            "order": [
+              "selector",
+              "attention",
+              "serial"
+            ],
+            "ms": {
+              "selector": 0.0341759991645813,
+              "attention": 0.019839999675750734,
+              "serial": 0.05387263774871826
+            }
+          },
+          {
+            "round": 5,
+            "order": [
+              "serial",
+              "selector",
+              "attention"
+            ],
+            "ms": {
+              "serial": 0.05386240005493164,
+              "selector": 0.03417088031768799,
+              "attention": 0.019850239753723145
+            }
+          },
+          {
+            "round": 6,
+            "order": [
+              "attention",
+              "serial",
+              "selector"
+            ],
+            "ms": {
+              "attention": 0.01985535979270935,
+              "serial": 0.053847041130065915,
+              "selector": 0.034165759086608884
+            }
+          }
+        ],
+        "median_ms": {
+          "selector": 0.03417088031768799,
+          "attention": 0.019850239753723145,
+          "serial": 0.053867521286010744
+        },
+        "replays_per_interval": 200,
+        "selector_over_attention_by_round": [
+          1.7201752403057025,
+          1.7218782657336542,
+          1.7209902351019157,
+          1.721950002606358,
+          1.7225806312059881,
+          1.7214341358914236,
+          1.7207323082180632
+        ],
+        "median_selector_over_attention": 1.7214341358914236
+      },
+      "passed": true
+    },
+    {
+      "config": {
+        "kind": "current",
+        "context": 16384,
+        "topk": 128,
+        "heads": 16,
+        "kv_heads": 8,
+        "dim": 128,
+        "block_size": 32,
+        "selector": "Current Quest-style per-head min/max bound plus torch.topk",
+        "seed": 20261103,
+        "hierarchical": false
+      },
+      "serial_probe": {
+        "raw_rounds": [
+          {
+            "round": 0,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.05709824085235596,
+              "attention": 0.03192831993103027,
+              "selector": 0.02372607946395874
+            }
+          },
+          {
+            "round": 1,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.05708288192749023,
+              "attention": 0.03191807985305786,
+              "selector": 0.02372096061706543
+            }
+          },
+          {
+            "round": 2,
+            "order": [
+              "serial",
+              "selector",
+              "attention"
+            ],
+            "ms": {
+              "serial": 0.05708288192749023,
+              "selector": 0.02372607946395874,
+              "attention": 0.03189248085021973
+            }
+          },
+          {
+            "round": 3,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.057047038078308104,
+              "attention": 0.03191807985305786,
+              "selector": 0.02372096061706543
+            }
+          },
+          {
+            "round": 4,
+            "order": [
+              "selector",
+              "attention",
+              "serial"
+            ],
+            "ms": {
+              "selector": 0.02371583938598633,
+              "attention": 0.03192320108413696,
+              "serial": 0.05706240177154541
+            }
+          },
+          {
+            "round": 5,
+            "order": [
+              "serial",
+              "selector",
+              "attention"
+            ],
+            "ms": {
+              "serial": 0.057077760696411135,
+              "selector": 0.02372607946395874,
+              "attention": 0.03190783977508545
+            }
+          },
+          {
+            "round": 6,
+            "order": [
+              "attention",
+              "serial",
+              "selector"
+            ],
+            "ms": {
+              "attention": 0.0318720006942749,
+              "serial": 0.057077760696411135,
+              "selector": 0.02373120069503784
+            }
+          }
+        ],
+        "median_ms": {
+          "selector": 0.02372607946395874,
+          "attention": 0.03191807985305786,
+          "serial": 0.057077760696411135
+        },
+        "replays_per_interval": 200,
+        "selector_over_attention_by_round": [
+          0.7431045390177266,
+          0.7431825700753386,
+          0.7439396005405229,
+          0.7431825700753386,
+          0.7429029226574345,
+          0.7435815032042608,
+          0.7445783188408573
+        ],
+        "median_selector_over_attention": 0.7431825700753386
+      },
+      "passed": true
+    },
+    {
+      "config": {
+        "kind": "current",
+        "context": 16384,
+        "topk": 256,
+        "heads": 16,
+        "kv_heads": 8,
+        "dim": 128,
+        "block_size": 32,
+        "selector": "Current Quest-style per-head min/max bound plus torch.topk",
+        "seed": 20261103,
+        "hierarchical": false
+      },
+      "serial_probe": {
+        "raw_rounds": [
+          {
+            "round": 0,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.08324607849121093,
+              "attention": 0.059642882347106935,
+              "selector": 0.023710720539093018
+            }
+          },
+          {
+            "round": 1,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.08324095726013184,
+              "attention": 0.059714560508728025,
+              "selector": 0.02376192092895508
+            }
+          },
+          {
+            "round": 2,
+            "order": [
+              "serial",
+              "selector",
+              "attention"
+            ],
+            "ms": {
+              "serial": 0.08324607849121093,
+              "selector": 0.02371583938598633,
+              "attention": 0.05971968173980713
+            }
+          },
+          {
+            "round": 3,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.0832307243347168,
+              "attention": 0.05967872142791748,
+              "selector": 0.02371583938598633
+            }
+          },
+          {
+            "round": 4,
+            "order": [
+              "selector",
+              "attention",
+              "serial"
+            ],
+            "ms": {
+              "selector": 0.023705599308013917,
+              "attention": 0.05964799880981445,
+              "serial": 0.08319999694824219
+            }
+          },
+          {
+            "round": 5,
+            "order": [
+              "serial",
+              "selector",
+              "attention"
+            ],
+            "ms": {
+              "serial": 0.0832307243347168,
+              "selector": 0.02372096061706543,
+              "attention": 0.05966335773468018
+            }
+          },
+          {
+            "round": 6,
+            "order": [
+              "attention",
+              "serial",
+              "selector"
+            ],
+            "ms": {
+              "attention": 0.05962751865386963,
+              "serial": 0.08318976402282714,
+              "selector": 0.023705599308013917
+            }
+          }
+        ],
+        "median_ms": {
+          "selector": 0.02371583938598633,
+          "attention": 0.05966335773468018,
+          "serial": 0.0832307243347168
+        },
+        "replays_per_interval": 200,
+        "selector_over_attention_by_round": [
+          0.3975448470297335,
+          0.39792507432893154,
+          0.397119319712954,
+          0.39739188136983356,
+          0.39742488903271317,
+          0.3975800477497646,
+          0.3975613918402674
+        ],
+        "median_selector_over_attention": 0.3975448470297335
+      },
+      "passed": true
+    }
+  ],
+  "passed": true
+}

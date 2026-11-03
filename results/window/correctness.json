@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": 36,
+  "dtypes": [
+    "float16",
+    "bfloat16"
+  ],
+  "oracle": "FP64 on identical quantized inputs and exact selected IDs",
+  "source_sha256": {
+    "strict_topk/gqa_hierarchical.py": "d9391db7828adab24141c3faea0b6b3b94704f57c7d03d93f4b20e3bf46f97b0",
+    "tests/check_gqa_hierarchical.py": "3c251e1bfdd5174bd6b7a42e01bd43cc8d420c88a1dd87ac1e5ef8c298e6a0dd"
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "environment": {
+    "python": "3.10.12",
+    "torch": "2.8.0+cu128",
+    "triton": "3.4.0",
+    "cuda_runtime": "12.8",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "gpu_total_memory_bytes": 85093777408,
+    "compute_capability": [
+      8,
+      0
+    ],
+    "float32_matmul_precision": "highest",
+    "timing": "CUDA Graph; shuffled stage order, 200 replays per event interval, seven rounds",
+    "selector": "See per-case selector implementation",
+    "limitations": [
+      "Synthetic Q/K/V, no model run or trained indexer",
+      "Preparation and graph capture excluded; batch means are not request-tail samples"
+    ]
+  },
+  "scope": "Synthetic one-query decode stage probe; not a model run",
+  "source_sha256": "4c9d0316f709fbc81c7fb09edd954f28bff3816162fd96cca5698d1a73037f2c",
+  "experiments": [
+    {
+      "config": {
+        "kind": "qsa_shape",
+        "context": 8192,
+        "topk": 512,
+        "heads": 24,
+        "kv_heads": 2,
+        "dim": 256,
+        "block_size": 4,
+        "selector": "Independent Triton QSA-formula score=sum(ReLU(Q_indexer K_indexer^T))/sqrt(128), shared torch.topk; not native SGLang",
+        "seed": 20261103,
+        "hierarchical": true
+      },
+      "serial_probe": {
+        "raw_rounds": [
+          {
+            "round": 0,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.05727744102478027,
+              "attention": 0.026019840240478515,
+              "selector": 0.03199487924575806
+            }
+          },
+          {
+            "round": 1,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.05727744102478027,
+              "attention": 0.025958399772644043,
+              "selector": 0.03226111888885498
+            }
+          },
+          {
+            "round": 2,
+            "order": [
+              "serial",
+              "selector",
+              "attention"
+            ],
+            "ms": {
+              "serial": 0.05725696086883545,
+              "selector": 0.03197952032089233,
+              "attention": 0.02599936008453369
+            }
+          },
+          {
+            "round": 3,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.057241601943969725,
+              "attention": 0.02597887992858887,
+              "selector": 0.03198463916778564
+            }
+          },
+          {
+            "round": 4,
+            "order": [
+              "selector",
+              "attention",
+              "serial"
+            ],
+            "ms": {
+              "selector": 0.03197952032089233,
+              "attention": 0.02597887992858887,
+              "serial": 0.0572160005569458
+            }
+          },
+          {
+            "round": 5,
+            "order": [
+              "serial",
+              "selector",
+              "attention"
+            ],
+            "ms": {
+              "serial": 0.057231359481811524,
+              "selector": 0.03198463916778564,
+              "attention": 0.025958399772644043
+            }
+          },
+          {
+            "round": 6,
+            "order": [
+              "attention",
+              "serial",
+              "selector"
+            ],
+            "ms": {
+              "attention": 0.025973761081695558,
+              "serial": 0.05724671840667725,
+              "selector": 0.03198463916778564
+            }
+          }
+        ],
+        "median_ms": {
+          "selector": 0.03198463916778564,
+          "attention": 0.02597887992858887,
+          "serial": 0.05724671840667725
+        },
+        "replays_per_interval": 200,
+        "selector_over_attention_by_round": [
+          1.229633962009663,
+          1.2428007570348378,
+          1.2300118240185485,
+          1.2311785287012178,
+          1.2309814899178915,
+          1.2321498801128827,
+          1.2314211664296135
+        ],
+        "median_selector_over_attention": 1.2311785287012178
+      },
+      "passed": true
+    },
+    {
+      "config": {
+        "kind": "qsa_shape",
+        "context": 32768,
+        "topk": 512,
+        "heads": 24,
+        "kv_heads": 2,
+        "dim": 256,
+        "block_size": 4,
+        "selector": "Independent Triton QSA-formula score=sum(ReLU(Q_indexer K_indexer^T))/sqrt(128), shared torch.topk; not native SGLang",
+        "seed": 20261103,
+        "hierarchical": true
+      },
+      "serial_probe": {
+        "raw_rounds": [
+          {
+            "round": 0,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.09910783767700196,
+              "attention": 0.02598912000656128,
+              "selector": 0.07415296077728271
+            }
+          },
+          {
+            "round": 1,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.09912320137023926,
+              "attention": 0.02594815969467163,
+              "selector": 0.07414783954620362
+            }
+          },
+          {
+            "round": 2,
+            "order": [
+              "serial",
+              "selector",
+              "attention"
+            ],
+            "ms": {
+              "serial": 0.09908736228942872,
+              "selector": 0.07416831970214843,
+              "attention": 0.02594815969467163
+            }
+          },
+          {
+            "round": 3,
+            "order": [
+              "serial",
+              "attention",
+              "selector"
+            ],
+            "ms": {
+              "serial": 0.0991385555267334,
+              "attention": 0.02597887992858887,
+              "selector": 0.07416831970214843
+            }
+          },
+          {
+            "round": 4,
+            "order": [
+              "selector",
+              "attention",
+              "serial"
+            ],
+            "ms": {
+              "selector": 0.07415296077728271,
+              "attention": 0.02594815969467163,
+              "serial": 0.09907199859619141
+            }
+          },
+          {
+            "round": 5,
+            "order": [
+              "serial",
+              "selector",
+              "attention"
+            ],
+            "ms": {
+              "serial": 0.09904640197753906,
+              "selector": 0.07412735939025879,
+              "attention": 0.025973761081695558
+            }
+          },
+          {
+            "round": 6,
+            "order": [
+              "attention",
+              "serial",
+              "selector"
+            ],
+            "ms": {
+              "attention": 0.02592767953872681,
+              "serial": 0.09909248352050781,
+              "selector": 0.07416319847106934
+            }
+          }
+        ],
+        "median_ms": {
+          "selector": 0.07415296077728271,
+          "attention": 0.02594815969467163,
+          "serial": 0.09909248352050781
+        },
+        "replays_per_interval": 200,
+        "selector_over_attention_by_round": [
+          2.8532309196526033,
+          2.8575375062698427,
+          2.8583267782716266,
+          2.854946783926921,
+          2.857734870211616,
+          2.8539324419403562,
+          2.860387037733002
+        ],
+        "median_selector_over_attention": 2.8575375062698427
+      },
+      "passed": true
+    }
+  ],
+  "passed": true
+}
