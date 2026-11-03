@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-03",
+  "device": "One prechecked idle A100-SXM4-80GB",
+  "source_sha256": {
+    "strict_topk/flashinfer_backend.py": "2802c88e8b9cfdbd30679f62a23738649702135fd189b5b82f7fecf9ca16d489",
+    "tests/check_flashinfer_backend.py": "d4c50c4ee3181c4626aa3c24a0f1d0b67dd3089fe58c9aab8db95789aaf283eb",
+    "benchmarks/flashinfer_overlap.py": "fd47b337cf40770c62e59e3d4fdb05ce11f53608ad3324b1357ffaeb9f87d5d7",
+    "experiments/run_flashinfer.py": "6e55c63b174462a265917491ceb38a18c03d4b26efc35cf137d75db3fad1e585"
+  },
+  "stages": [
+    {
+      "name": "correctness",
+      "module": "tests.check_flashinfer_backend",
+      "returncode": 0,
+      "wall_seconds": 158.61102769896388
+    },
+    {
+      "name": "benchmark_20261103",
+      "module": "benchmarks.flashinfer_overlap",
+      "returncode": 0,
+      "wall_seconds": 70.69624210009351
+    },
+    {
+      "name": "benchmark_20261104",
+      "module": "benchmarks.flashinfer_overlap",
+      "returncode": 0,
+      "wall_seconds": 31.889686450362206
+    },
+    {
+      "name": "benchmark_20261105",
+      "module": "benchmarks.flashinfer_overlap",
+      "returncode": 0,
+      "wall_seconds": 32.62481505377218
+    }
+  ]
+}

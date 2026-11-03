@@ -2,6 +2,7 @@
 torch==2.8.0
 triton==3.4.0
 transformers==4.56.1
-# Optional vendor baseline: flashinfer-python==0.3.1 (matching CUDA build).
+# Vendor baseline and speculative backend: flashinfer-python==0.3.1 (matching CUDA build).
+# Dynamic one-tile correction is version-pinned; newer versions need validation.
 # Only required to regenerate figures.
 matplotlib>=3.8

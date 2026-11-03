@@ -1,0 +1,12 @@
+{
+  "base_commit": "3897c8de7d596e067f3807dd9b48471f186bfebd",
+  "note": "Measured backend, test, benchmark and runner match run_manifest.json. Other changes are report generation, navigation and documentation. FlashInfer 0.3.1 is required for the one-tile scheduling invariant.",
+  "source_sha256": {
+    "strict_topk/flashinfer_backend.py": "2802c88e8b9cfdbd30679f62a23738649702135fd189b5b82f7fecf9ca16d489",
+    "tests/check_flashinfer_backend.py": "d4c50c4ee3181c4626aa3c24a0f1d0b67dd3089fe58c9aab8db95789aaf283eb",
+    "benchmarks/flashinfer_overlap.py": "fd47b337cf40770c62e59e3d4fdb05ce11f53608ad3324b1357ffaeb9f87d5d7",
+    "benchmarks/summarize_vendor.py": "c8d5c60c1ada58718d1b913683a61a1efc9c7b0a46ef91dc5c8378d252d97b2d",
+    "experiments/run_flashinfer.py": "6e55c63b174462a265917491ceb38a18c03d4b26efc35cf137d75db3fad1e585",
+    "benchmarks/summarize.py": "ddc1813ffb1a4b649e7d6c576dc015ca5f7288a4a1c4abf397550d157ddbb39b"
+  }
+}
