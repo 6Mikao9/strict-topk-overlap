@@ -1,0 +1,6 @@
+# Exact versions in the measured GPU environment; use an isolated CUDA environment.
+torch==2.8.0
+triton==3.4.0
+transformers==4.56.1
+# Only required to regenerate figures.
+matplotlib>=3.8
