@@ -1,0 +1,974 @@
+{
+  "scope": "host-side 1-second samples; may miss activity between polls",
+  "gpu_index": 2,
+  "samples": [
+    {
+      "unix_time": 1794212857.9440534,
+      "memory_mib": 2475,
+      "utilization": 6,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212859.2385948,
+      "memory_mib": 3017,
+      "utilization": 99,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212860.551024,
+      "memory_mib": 2469,
+      "utilization": 69,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212861.84957,
+      "memory_mib": 3017,
+      "utilization": 99,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212863.1236708,
+      "memory_mib": 2371,
+      "utilization": 59,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212864.415841,
+      "memory_mib": 3019,
+      "utilization": 30,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212865.727733,
+      "memory_mib": 2581,
+      "utilization": 99,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212866.9964323,
+      "memory_mib": 3205,
+      "utilization": 66,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212868.2502704,
+      "memory_mib": 2791,
+      "utilization": 92,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212869.5634947,
+      "memory_mib": 3205,
+      "utilization": 100,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212870.8873768,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212872.2300458,
+      "memory_mib": 4,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212873.5227199,
+      "memory_mib": 2473,
+      "utilization": 38,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212874.8608527,
+      "memory_mib": 3017,
+      "utilization": 84,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212876.1819525,
+      "memory_mib": 2469,
+      "utilization": 38,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212877.486762,
+      "memory_mib": 3017,
+      "utilization": 69,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212878.767008,
+      "memory_mib": 2371,
+      "utilization": 84,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212880.047387,
+      "memory_mib": 3019,
+      "utilization": 58,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212881.4059527,
+      "memory_mib": 2581,
+      "utilization": 48,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212882.698992,
+      "memory_mib": 3205,
+      "utilization": 92,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212884.0191414,
+      "memory_mib": 2791,
+      "utilization": 26,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212885.3416831,
+      "memory_mib": 3205,
+      "utilization": 22,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212886.6284142,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212887.91597,
+      "memory_mib": 4,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212889.2151582,
+      "memory_mib": 2473,
+      "utilization": 33,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212890.5473273,
+      "memory_mib": 3017,
+      "utilization": 37,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212891.8479598,
+      "memory_mib": 2469,
+      "utilization": 45,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212893.199144,
+      "memory_mib": 3017,
+      "utilization": 45,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212894.535467,
+      "memory_mib": 2373,
+      "utilization": 83,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212895.819718,
+      "memory_mib": 2371,
+      "utilization": 64,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212897.1193442,
+      "memory_mib": 2371,
+      "utilization": 53,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212898.3993409,
+      "memory_mib": 3205,
+      "utilization": 31,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212899.7137234,
+      "memory_mib": 2791,
+      "utilization": 30,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212901.011666,
+      "memory_mib": 3205,
+      "utilization": 99,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212902.3318315,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212903.97086,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212905.2901652,
+      "memory_mib": 553,
+      "utilization": 1,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212906.605877,
+      "memory_mib": 1321,
+      "utilization": 0,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212907.903449,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212909.2192345,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212910.5354097,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212911.8004644,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212913.099675,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212914.3635013,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212915.7078238,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212917.0273426,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212918.3266194,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212919.6122613,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212920.9244044,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212922.263761,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212923.5881271,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212924.8634284,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212926.1668832,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212927.4507277,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212928.7860937,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212930.116406,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212931.415207,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212932.730626,
+      "memory_mib": 523,
+      "utilization": 0,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212934.0567083,
+      "memory_mib": 1309,
+      "utilization": 1,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212935.331506,
+      "memory_mib": 1321,
+      "utilization": 2,
+      "compute_process_count": 1,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212936.5952308,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212937.9155872,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212939.219079,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212940.54744,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212941.8496926,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212943.1460907,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212944.4435432,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212945.735426,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212947.0834286,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212948.4034624,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212949.7229443,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212951.0614102,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212952.3194926,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212953.6548152,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212954.9957986,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212956.255837,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212957.5834258,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212958.8716714,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212960.1954148,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212961.453615,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212962.739313,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212964.038823,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212965.338367,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212966.659379,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212967.9394867,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212969.2516818,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212970.5518959,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212971.8316717,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212973.1506698,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212974.4471653,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212975.7728624,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212977.0574841,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212978.3654404,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212979.686103,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212980.9906619,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212982.2991464,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212983.6214728,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212984.9228702,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212986.2552123,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212987.5470603,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212988.8966339,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212990.227067,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212991.5611594,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212992.8993618,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212994.2597172,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212995.534949,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212996.8946958,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212998.2428815,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794212999.5751948,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213000.8981688,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213002.2345486,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213003.5712936,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213004.8981502,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213006.2588205,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213007.5954416,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213008.912872,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213010.2109878,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213011.5546517,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213012.835955,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213014.1074834,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213015.419738,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213016.7370005,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213018.0397472,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213019.379241,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213020.68331,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213021.9992354,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213023.3153636,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213024.5957663,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213025.9225411,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213027.2072828,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213028.5618224,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213029.883532,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213031.2343788,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213032.5673103,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213033.9314108,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213035.2392595,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213036.567105,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    },
+    {
+      "unix_time": 1794213037.835928,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0,
+      "processes_outside_container": 0
+    }
+  ],
+  "status": "complete",
+  "sharing_observed": false
+}

@@ -1,0 +1,53 @@
+"""Build the paper-interface comparison report without rewriting old data."""
+from collections import defaultdict
+import hashlib
+import json
+from pathlib import Path
+
+from benchmarks.summarize import table,interval
+
+
+def main():
+    root=Path(__file__).resolve().parents[1]
+    paths=sorted((root/'results/paper_baseline').glob('benchmark_*.json'))
+    runs=[json.loads(p.read_text()) for p in paths]
+    assert len(runs)==3 and all(x['passed'] for x in runs)
+    for run in runs:
+        for f,digest in run['source_sha256'].items():
+            assert hashlib.sha256((root/f).read_bytes()).hexdigest()==digest,f
+    cases=[c for run in runs for c in run['experiments']]
+    groups=defaultdict(list)
+    for c in cases:groups[c['block_size'],c['token_budget']].append(c)
+    checks=[v for c in cases for field in ['mutation_checks','post_timing_validation'] for v in c[field].values()]
+    assert len(cases)==75 and all(v['passed'] for v in checks)
+    rows=[]
+    for (block,budget),cc in sorted(groups.items()):
+        paged=[r for c in cc for r in c['rows'] if r['candidate']=='paged_grouped']
+        own=[r for c in cc for r in c['rows'] if r['candidate']=='triton_saved_exact']
+        rows.append([block,budget,interval([r['median_baseline_us'] for r in paged]),
+                     interval([r['median_paired_ratio'] for r in paged],4),
+                     interval([r['median_paired_ratio'] for r in own],4)])
+    paged=[r['median_paired_ratio'] for c in cases for r in c['rows'] if r['candidate']=='paged_grouped']
+    own=[r['median_paired_ratio'] for c in cases for r in c['rows'] if r['candidate']=='triton_saved_exact']
+    lines=['# PRR 论文基线接口与形状对齐','',
+      'PRR 的端到端基线是串行 Quest/InfLLM-v2；内核对照明确为 FlashInfer BlockSparseAttention。其 S2 同时换用定制内核并启用增量修复，无法单独把加速归因于重叠。[论文 §5.1–5.4](https://arxiv.org/html/2606.30389v1#S5)', '',
+      '本轮补测真实 `flashinfer.sparse.BlockSparseAttentionWrapper`，不把此前的 paged decode 适配视为论文同一基线。数据为 A100 上的同接口、同名义形状微基准，未运行作者的 H100/FA3 内核，也没有复现整模型 PRR。', '',
+      '最终数据于 2026-11-09 在固定训练容器 GPU 2 上重测，附 [容器执行记录](../results/profiling/run_status.json)和[宿主机采样审计](../results/profiling/host_gpu_audit.json)。容器内进程列表可能漏掉外部任务，因此额外从宿主机检查；审计期间未观察到共享。主测宿主审计比 GPU 选定晚约 4.1 秒，未覆盖启动初段，也不能排除采样间隔内的短暂活动。', '',
+      *table(['项目','论文配置','本轮配置'],[
+          ['GPU','H100','A100 SXM4 80GB'],['上下文/Q头/KV头/头维','128K / 32 / 8 / 128','相同'],
+          ['块长 token','16,32,64,128,256','相同'],['所选 token','1024,2048,4096,6144,8192','相同'],
+          ['FlashInfer版本','未明确固定版本','0.3.1，auto 实际选择 FA2 Tensor Cores'],
+          ['稀疏表与计时细节','论文未给完整复现参数','FP16随机输入，共享随机块表；M=1,R=1，列块长为C'],
+          ['端到端模型与TP','Quest/InfLLM-v2，TP=2','未运行，当前仅内核控制实验']]),'',
+      '每个方法使用其原生布局，布局转换和固定 planning 在计时之外。所有 GPU 块表先准备好，计时只包含 attention：BSR 原生 run、已准备好页表的 grouped paged run、我们自写的逐块状态计算与分层归并。没有 selector 或预测阶段，不能据此报告解码加速。', '',
+      f'3 个种子共 {len(cases)} 个测点。每点随机 ABBA/BAAB，5 对、每段100次 Graph 回放。下表区间为三个种子的配对中位数范围；比值统一为 BlockSparse / 候选，>1 表示候选更快。改变块 ID 后的同图复验与计时后 FP64 检查合计 {len(checks)}/{len(checks)} 通过。', '',
+      f'Grouped paged 比值范围 {interval(paged,4)}×，中位数较快 {sum(x>1 for x in paged)}/75；我们自写的严格串行 attention 比值 {interval(own,4)}×，中位数较快 {sum(x>1 for x in own)}/75。不同布局和后端差异仍影响结果，不能跨硬件引用论文加速比。','',
+      *table(['块长','所选token','BlockSparse µs','BlockSparse / grouped paged','BlockSparse / 自写严格串行'],rows),'',
+      '本轮没有用较弱接口替换主基线。后续完整路径主对照应保持同一稀疏模型、selector、KV布局和块预算，分别报告原串行 DSA、同一后端串行、PRR 并集修复、我们的严格/近似修复。QSA 是另一个目标工作负载，应单列；现有随机模拟不能替代原生模型结果。','',
+      '原始结果：'+' · '.join(f'[{p.name}](../results/paper_baseline/{p.name})' for p in paths)+'。执行状态与源码摘要见 [run_manifest.json](../results/paper_baseline/run_manifest.json)。','',
+      '复现：`python -m experiments.run_paper_baseline`，然后 `python -m benchmarks.summarize_paper`。','']
+    (root/'docs/paper_baseline_results.md').write_text('\n'.join(lines),encoding='utf-8')
+    print(json.dumps({'cases':len(cases),'checks':len(checks),'paged_ratio':[min(paged),max(paged)],'own_ratio':[min(own),max(own)]}))
+
+
+if __name__=='__main__':main()

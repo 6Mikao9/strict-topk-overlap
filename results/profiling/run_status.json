@@ -1,0 +1,68 @@
+{
+  "status": "complete",
+  "scope": "training container only",
+  "stages": [
+    {
+      "name": "paper_baseline",
+      "returncode": 0,
+      "shared_device_detected": false
+    },
+    {
+      "name": "profile",
+      "returncode": 0,
+      "shared_device_detected": false
+    }
+  ],
+  "last_check_unix": 1794212853.8456783,
+  "devices": [
+    {
+      "index": 0,
+      "memory_mib": 66026,
+      "utilization": 0,
+      "compute_process_count": 0
+    },
+    {
+      "index": 1,
+      "memory_mib": 66602,
+      "utilization": 0,
+      "compute_process_count": 0
+    },
+    {
+      "index": 2,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0
+    },
+    {
+      "index": 3,
+      "memory_mib": 66602,
+      "utilization": 0,
+      "compute_process_count": 0
+    },
+    {
+      "index": 4,
+      "memory_mib": 66026,
+      "utilization": 0,
+      "compute_process_count": 0
+    },
+    {
+      "index": 5,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0
+    },
+    {
+      "index": 6,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0
+    },
+    {
+      "index": 7,
+      "memory_mib": 0,
+      "utilization": 0,
+      "compute_process_count": 0
+    }
+  ],
+  "gpu_index": 2
+}

@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-09",
+  "source_sha256": {
+    "benchmarks/paper_baseline.py": "cf40e96081f2b9ebf21ed3dbf3863391b206c46e7ba6ef6e9a0a00c3b4100282",
+    "experiments/run_paper_baseline.py": "cecdd55e4a1bbd3cd4723a825b8039a8beda7daa4d3a30a93a2e8baa36e30f09",
+    "strict_topk/gqa_hierarchical.py": "d9391db7828adab24141c3faea0b6b3b94704f57c7d03d93f4b20e3bf46f97b0",
+    "strict_topk/flashinfer_backend.py": "2802c88e8b9cfdbd30679f62a23738649702135fd189b5b82f7fecf9ca16d489"
+  },
+  "stages": [
+    {
+      "seed": 20261109,
+      "returncode": 0,
+      "seconds": 15.71231763344258
+    },
+    {
+      "seed": 20261110,
+      "returncode": 0,
+      "seconds": 15.62038676487282
+    },
+    {
+      "seed": 20261111,
+      "returncode": 0,
+      "seconds": 15.674116855952889
+    }
+  ]
+}

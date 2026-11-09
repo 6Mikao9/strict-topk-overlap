@@ -1,0 +1,449 @@
+{
+  "scope": "Profiler-instrumented CUDA Graph timelines; not performance speedup measurements",
+  "config": {
+    "kind": "qsa_shape",
+    "context": 8192,
+    "topk": 512,
+    "heads": 24,
+    "kv_heads": 2,
+    "dim": 256,
+    "block_size": 4,
+    "selector": "Independent Triton QSA-formula score=sum(ReLU(Q_indexer K_indexer^T))/sqrt(128), shared torch.topk; not native SGLang",
+    "seed": 20261109
+  },
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "torch": "2.8.0+cu128",
+  "replays": 1,
+  "profiles": {
+    "serial": {
+      "cuda_kernel_count": 7,
+      "sum_kernel_us": 49.471999999999994,
+      "kernel_active_union_us": 49.47216796875,
+      "concurrent_kernel_interval_us": 0.0,
+      "first_to_last_kernel_span_us": 49.88818359375,
+      "no_kernel_interval_us": 0.416015625,
+      "reported_trace_lanes": [
+        "7"
+      ],
+      "host_graph_launch_calls": 1,
+      "host_graph_launch_api_us": 50.347,
+      "host_graph_launch_start_gaps_us": [],
+      "host_device_synchronize_us": 24.399,
+      "kernels": {
+        "void at::native::sbtopk::gatherTopK<float, unsigned int, 1, false>(at::cuda::detail::TensorInfo<float const, unsigned int>, unsigned int, unsigned int, bool, unsigned int, unsigned int, at::cuda::detail::TensorInfo<float, unsigned int>, unsigned int, at::cuda::detail::TensorInfo<long, unsigned int>, unsigned int, float*)": {
+          "calls": 1,
+          "total_us": 22.08,
+          "max_us": 22.08
+        },
+        "void flashinfer::BatchPrefillWithPagedKVCacheKernel<flashinfer::KernelTraits<(flashinfer::MaskMode)0, 16u, 1u, 1u, 16u, 16u, 1u, 4u, (flashinfer::PosEncodingMode)0, __half, __half, __half, float, int, flashinfer::DefaultAttention<false, false, false, false> >, PagedParams>(PagedParams)": {
+          "calls": 1,
+          "total_us": 11.616,
+          "max_us": 11.616
+        },
+        "_indexer_scores": {
+          "calls": 1,
+          "total_us": 5.568,
+          "max_us": 5.568
+        },
+        "void flashinfer::PersistentVariableLengthMergeStatesKernel<8u, 32u, 4u, 4u, __half, __half, int>(__half*, float*, int*, __half*, float*, unsigned int, unsigned int*, unsigned int)": {
+          "calls": 1,
+          "total_us": 3.744,
+          "max_us": 3.744
+        },
+        "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+          "calls": 1,
+          "total_us": 2.656,
+          "max_us": 2.656
+        },
+        "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1} const&)::{lambda(int)#1})": {
+          "calls": 1,
+          "total_us": 2.144,
+          "max_us": 2.144
+        },
+        "_pages": {
+          "calls": 1,
+          "total_us": 1.664,
+          "max_us": 1.664
+        }
+      },
+      "memcpy_event_count": 0,
+      "validation": {
+        "passed": true,
+        "max_abs_error": 6.06864854191258e-05,
+        "atol": 0.0003,
+        "rtol": 0.0003
+      },
+      "trace_file": "serial.trace.json"
+    },
+    "overlap": {
+      "cuda_kernel_count": 15,
+      "sum_kernel_us": 97.76100000000001,
+      "kernel_active_union_us": 85.984375,
+      "concurrent_kernel_interval_us": 11.77587890625,
+      "first_to_last_kernel_span_us": 88.9609375,
+      "no_kernel_interval_us": 2.9765625,
+      "reported_trace_lanes": [
+        "143",
+        "7"
+      ],
+      "host_graph_launch_calls": 1,
+      "host_graph_launch_api_us": 49.213,
+      "host_graph_launch_start_gaps_us": [],
+      "host_device_synchronize_us": 44.464999999999996,
+      "kernels": {
+        "void at::native::sbtopk::gatherTopK<float, unsigned int, 1, false>(at::cuda::detail::TensorInfo<float const, unsigned int>, unsigned int, unsigned int, bool, unsigned int, unsigned int, at::cuda::detail::TensorInfo<float, unsigned int>, unsigned int, at::cuda::detail::TensorInfo<long, unsigned int>, unsigned int, float*)": {
+          "calls": 1,
+          "total_us": 24.128,
+          "max_us": 24.128
+        },
+        "void flashinfer::BatchPrefillWithPagedKVCacheKernel<flashinfer::KernelTraits<(flashinfer::MaskMode)0, 16u, 1u, 1u, 16u, 16u, 1u, 4u, (flashinfer::PosEncodingMode)0, __half, __half, __half, float, int, flashinfer::DefaultAttention<false, false, false, false> >, PagedParams>(PagedParams)": {
+          "calls": 2,
+          "total_us": 23.265,
+          "max_us": 11.904
+        },
+        "_fallback_parts": {
+          "calls": 1,
+          "total_us": 11.392,
+          "max_us": 11.392
+        },
+        "void flashinfer::PersistentVariableLengthMergeStatesKernel<8u, 32u, 4u, 4u, __half, __half, int>(__half*, float*, int*, __half*, float*, unsigned int, unsigned int*, unsigned int)": {
+          "calls": 2,
+          "total_us": 7.5200000000000005,
+          "max_us": 4.32
+        },
+        "_merge": {
+          "calls": 1,
+          "total_us": 6.592,
+          "max_us": 6.592
+        },
+        "_indexer_scores": {
+          "calls": 1,
+          "total_us": 5.856,
+          "max_us": 5.856
+        },
+        "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+          "calls": 1,
+          "total_us": 3.424,
+          "max_us": 3.424
+        },
+        "_classify": {
+          "calls": 1,
+          "total_us": 3.36,
+          "max_us": 3.36
+        },
+        "_fallback_merge": {
+          "calls": 1,
+          "total_us": 2.912,
+          "max_us": 2.912
+        },
+        "_tables": {
+          "calls": 1,
+          "total_us": 2.592,
+          "max_us": 2.592
+        },
+        "_compact": {
+          "calls": 1,
+          "total_us": 2.368,
+          "max_us": 2.368
+        },
+        "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1} const&)::{lambda(int)#1})": {
+          "calls": 1,
+          "total_us": 2.272,
+          "max_us": 2.272
+        },
+        "_pages": {
+          "calls": 1,
+          "total_us": 2.08,
+          "max_us": 2.08
+        }
+      },
+      "memcpy_event_count": 0,
+      "validation": {
+        "passed": true,
+        "max_abs_error": 6.302430804526471e-05,
+        "atol": 0.0003,
+        "rtol": 0.0003
+      },
+      "fallback_heads": 2,
+      "trace_file": "overlap.trace.json"
+    },
+    "serialized_speculation": {
+      "cuda_kernel_count": 15,
+      "sum_kernel_us": 92.993,
+      "kernel_active_union_us": 92.99365234375,
+      "concurrent_kernel_interval_us": 0.0,
+      "first_to_last_kernel_span_us": 94.14599609375,
+      "no_kernel_interval_us": 1.15234375,
+      "reported_trace_lanes": [
+        "7"
+      ],
+      "host_graph_launch_calls": 1,
+      "host_graph_launch_api_us": 38.129,
+      "host_graph_launch_start_gaps_us": [],
+      "host_device_synchronize_us": 78.561,
+      "kernels": {
+        "void flashinfer::BatchPrefillWithPagedKVCacheKernel<flashinfer::KernelTraits<(flashinfer::MaskMode)0, 16u, 1u, 1u, 16u, 16u, 1u, 4u, (flashinfer::PosEncodingMode)0, __half, __half, __half, float, int, flashinfer::DefaultAttention<false, false, false, false> >, PagedParams>(PagedParams)": {
+          "calls": 2,
+          "total_us": 23.009,
+          "max_us": 11.648
+        },
+        "void at::native::sbtopk::gatherTopK<float, unsigned int, 1, false>(at::cuda::detail::TensorInfo<float const, unsigned int>, unsigned int, unsigned int, bool, unsigned int, unsigned int, at::cuda::detail::TensorInfo<float, unsigned int>, unsigned int, at::cuda::detail::TensorInfo<long, unsigned int>, unsigned int, float*)": {
+          "calls": 1,
+          "total_us": 22.272,
+          "max_us": 22.272
+        },
+        "_fallback_parts": {
+          "calls": 1,
+          "total_us": 11.04,
+          "max_us": 11.04
+        },
+        "void flashinfer::PersistentVariableLengthMergeStatesKernel<8u, 32u, 4u, 4u, __half, __half, int>(__half*, float*, int*, __half*, float*, unsigned int, unsigned int*, unsigned int)": {
+          "calls": 2,
+          "total_us": 6.912,
+          "max_us": 3.776
+        },
+        "_merge": {
+          "calls": 1,
+          "total_us": 6.431,
+          "max_us": 6.431
+        },
+        "_indexer_scores": {
+          "calls": 1,
+          "total_us": 5.825,
+          "max_us": 5.825
+        },
+        "_classify": {
+          "calls": 1,
+          "total_us": 3.264,
+          "max_us": 3.264
+        },
+        "_fallback_merge": {
+          "calls": 1,
+          "total_us": 2.816,
+          "max_us": 2.816
+        },
+        "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+          "calls": 1,
+          "total_us": 2.56,
+          "max_us": 2.56
+        },
+        "_tables": {
+          "calls": 1,
+          "total_us": 2.56,
+          "max_us": 2.56
+        },
+        "_compact": {
+          "calls": 1,
+          "total_us": 2.368,
+          "max_us": 2.368
+        },
+        "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1} const&)::{lambda(int)#1})": {
+          "calls": 1,
+          "total_us": 2.304,
+          "max_us": 2.304
+        },
+        "_pages": {
+          "calls": 1,
+          "total_us": 1.632,
+          "max_us": 1.632
+        }
+      },
+      "memcpy_event_count": 0,
+      "validation": {
+        "passed": true,
+        "max_abs_error": 6.302430804526471e-05,
+        "atol": 0.0003,
+        "rtol": 0.0003
+      },
+      "fallback_heads": 2,
+      "trace_file": "serialized_speculation.trace.json"
+    },
+    "repair_only": {
+      "cuda_kernel_count": 8,
+      "sum_kernel_us": 41.408,
+      "kernel_active_union_us": 41.408203125,
+      "concurrent_kernel_interval_us": 0.0,
+      "first_to_last_kernel_span_us": 42.1123046875,
+      "no_kernel_interval_us": 0.7041015625,
+      "reported_trace_lanes": [
+        "7"
+      ],
+      "host_graph_launch_calls": 1,
+      "host_graph_launch_api_us": 275.564,
+      "host_graph_launch_start_gaps_us": [],
+      "host_device_synchronize_us": 22.82,
+      "kernels": {
+        "void flashinfer::BatchPrefillWithPagedKVCacheKernel<flashinfer::KernelTraits<(flashinfer::MaskMode)0, 16u, 1u, 1u, 16u, 16u, 1u, 4u, (flashinfer::PosEncodingMode)0, __half, __half, __half, float, int, flashinfer::DefaultAttention<false, false, false, false> >, PagedParams>(PagedParams)": {
+          "calls": 1,
+          "total_us": 11.424,
+          "max_us": 11.424
+        },
+        "_fallback_parts": {
+          "calls": 1,
+          "total_us": 9.088,
+          "max_us": 9.088
+        },
+        "_merge": {
+          "calls": 1,
+          "total_us": 6.496,
+          "max_us": 6.496
+        },
+        "_classify": {
+          "calls": 1,
+          "total_us": 3.552,
+          "max_us": 3.552
+        },
+        "void flashinfer::PersistentVariableLengthMergeStatesKernel<8u, 32u, 4u, 4u, __half, __half, int>(__half*, float*, int*, __half*, float*, unsigned int, unsigned int*, unsigned int)": {
+          "calls": 1,
+          "total_us": 3.136,
+          "max_us": 3.136
+        },
+        "_fallback_merge": {
+          "calls": 1,
+          "total_us": 2.784,
+          "max_us": 2.784
+        },
+        "_tables": {
+          "calls": 1,
+          "total_us": 2.56,
+          "max_us": 2.56
+        },
+        "_compact": {
+          "calls": 1,
+          "total_us": 2.368,
+          "max_us": 2.368
+        }
+      },
+      "memcpy_event_count": 0,
+      "validation": {
+        "passed": true,
+        "max_abs_error": 6.302430804526471e-05,
+        "atol": 0.0003,
+        "rtol": 0.0003
+      },
+      "fallback_heads": 2,
+      "trace_file": "repair_only.trace.json"
+    },
+    "selector_only": {
+      "cuda_kernel_count": 4,
+      "sum_kernel_us": 31.967,
+      "kernel_active_union_us": 31.966796875,
+      "concurrent_kernel_interval_us": 0.0,
+      "first_to_last_kernel_span_us": 32.255859375,
+      "no_kernel_interval_us": 0.2890625,
+      "reported_trace_lanes": [
+        "7"
+      ],
+      "host_graph_launch_calls": 1,
+      "host_graph_launch_api_us": 251.585,
+      "host_graph_launch_start_gaps_us": [],
+      "host_device_synchronize_us": 13.918,
+      "kernels": {
+        "void at::native::sbtopk::gatherTopK<float, unsigned int, 1, false>(at::cuda::detail::TensorInfo<float const, unsigned int>, unsigned int, unsigned int, bool, unsigned int, unsigned int, at::cuda::detail::TensorInfo<float, unsigned int>, unsigned int, at::cuda::detail::TensorInfo<long, unsigned int>, unsigned int, float*)": {
+          "calls": 1,
+          "total_us": 22.239,
+          "max_us": 22.239
+        },
+        "_indexer_scores": {
+          "calls": 1,
+          "total_us": 5.183,
+          "max_us": 5.183
+        },
+        "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+          "calls": 1,
+          "total_us": 2.4,
+          "max_us": 2.4
+        },
+        "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1} const&)::{lambda(int)#1})": {
+          "calls": 1,
+          "total_us": 2.145,
+          "max_us": 2.145
+        }
+      },
+      "memcpy_event_count": 0,
+      "validation": {
+        "passed": true
+      },
+      "trace_file": "selector_only.trace.json"
+    },
+    "prediction_only": {
+      "cuda_kernel_count": 3,
+      "sum_kernel_us": 16.927999999999997,
+      "kernel_active_union_us": 16.927734375,
+      "concurrent_kernel_interval_us": 0.0,
+      "first_to_last_kernel_span_us": 17.11962890625,
+      "no_kernel_interval_us": 0.19189453125,
+      "reported_trace_lanes": [
+        "7"
+      ],
+      "host_graph_launch_calls": 1,
+      "host_graph_launch_api_us": 231.152,
+      "host_graph_launch_start_gaps_us": [],
+      "host_device_synchronize_us": 13.632000000000001,
+      "kernels": {
+        "void flashinfer::BatchPrefillWithPagedKVCacheKernel<flashinfer::KernelTraits<(flashinfer::MaskMode)0, 16u, 1u, 1u, 16u, 16u, 1u, 4u, (flashinfer::PosEncodingMode)0, __half, __half, __half, float, int, flashinfer::DefaultAttention<false, false, false, false> >, PagedParams>(PagedParams)": {
+          "calls": 1,
+          "total_us": 11.52,
+          "max_us": 11.52
+        },
+        "void flashinfer::PersistentVariableLengthMergeStatesKernel<8u, 32u, 4u, 4u, __half, __half, int>(__half*, float*, int*, __half*, float*, unsigned int, unsigned int*, unsigned int)": {
+          "calls": 1,
+          "total_us": 3.84,
+          "max_us": 3.84
+        },
+        "_pages": {
+          "calls": 1,
+          "total_us": 1.568,
+          "max_us": 1.568
+        }
+      },
+      "memcpy_event_count": 0,
+      "validation": {
+        "passed": true,
+        "max_abs_error": 8.219206080856134e-05,
+        "atol": 0.0003,
+        "rtol": 0.0003
+      },
+      "trace_file": "prediction_only.trace.json"
+    }
+  },
+  "limitations": [
+    "Graph replay CPU launch overhead and profiling overhead affect timeline spans",
+    "Reported CUDA Graph trace lanes may not preserve logical stream identity",
+    "All intervals aggregate the requested replays; default one replay isolates one GPU timeline",
+    "Kernel-active interval is not SM utilization; no occupancy or hardware bandwidth counters",
+    "Synthetic QSA shape and controlled prediction IDs, no real model or host KV transfer"
+  ],
+  "source_sha256": {
+    "benchmarks/profile_overlap.py": "ced61b3443e79e9ef7d1e885cc610ef3def7e9a4ec060c7b8ad793123191f416",
+    "strict_topk/flashinfer_backend.py": "2802c88e8b9cfdbd30679f62a23738649702135fd189b5b82f7fecf9ca16d489"
+  },
+  "unprofiled_full_path_pairs": [
+    {
+      "baseline_ms": 0.05959167957305908,
+      "candidate_ms": 0.0986624002456665,
+      "ratio": 0.6039958426379
+    },
+    {
+      "baseline_ms": 0.059494400024414064,
+      "candidate_ms": 0.09896448135375976,
+      "ratio": 0.6011692196086451
+    },
+    {
+      "baseline_ms": 0.059494400024414064,
+      "candidate_ms": 0.09857023715972901,
+      "ratio": 0.6035736723246982
+    },
+    {
+      "baseline_ms": 0.059484159946441656,
+      "candidate_ms": 0.09914879798889159,
+      "ratio": 0.5999483720731151
+    },
+    {
+      "baseline_ms": 0.05948928117752075,
+      "candidate_ms": 0.09943552017211915,
+      "ratio": 0.5982699248170779
+    }
+  ],
+  "status": "cuda_timeline_collected"
+}

@@ -515,7 +515,7 @@ def main():
     args.figures.mkdir(parents=True, exist_ok=True)
     args.report.parent.mkdir(parents=True, exist_ok=True)
     lines = ["# Strict Top-K 实验结果", "",
-             "本文保留第一轮结果。最新的串行与推测双方接入 FlashInfer 的对照见 [FlashInfer 双边接入报告](vendor_backend_results.md)；此前的选择窗口与排名分析见 [窗口实验](window_results.md)。", "",
+             "本文保留第一轮结果。最新结果见 [PRR 基线接口对齐](paper_baseline_results.md)、[容器内 CUDA profiling](profiling.md)、[HiSparse 缓存回放](hisparse_trace.md)与[接入设计](hisparse_integration.md)。此前的同库对照见 [FlashInfer 双边接入报告](vendor_backend_results.md)，选择窗口与排名分析见 [窗口实验](window_results.md)。", "",
              "串行精确基线先执行块选择，再用同一套 split-block Triton 原型计算所选块注意力。块选择使用预先生成的 K 向量分量最小值和最大值、按 Q 符号取界并执行 `torch.topk`。Eager 的 CUDA event 区间包含主机提交间隙和 CUDA 流等待。CUDA Graph 回放固定输入和块 ID，排除图捕获时间。两类计时均排除编译、块元数据构建与预测 ID 构造。", "",
              "下表的 p50、p95 来自每测点的全部 CUDA event 样本，p95 采用线性插值。区间表示各测点统计量的最小值到最大值。加速比按同一测点的串行精确基线除以对应方法计算，大于 1 表示对应方法更快。`attention_only` 预先给定所选 ID，仅提供注意力部分的耗时参考。", ""]
     environments = set()

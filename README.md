@@ -2,7 +2,11 @@
 
 用当前 query 提前计算预测块，在正式 Top-K 完成后修正预测错误。项目比较逐块保存、混合扣除、紧凑状态及融合修正，并研究允许少量额外 softmax 质量时的精度—速度折中。
 
-这是一个 A100 上实测的 Triton 研究原型。完整数字见 [第二轮实验报告](docs/round2_results.md)、[第一轮实验报告](docs/results.md) 与 [results](results/)。主要性能基线为同一选择器下的串行精确注意力；第二轮另测 FlashInfer 与 PyTorch Flash SDPA。尚未完成模型端到端加速。
+这是一个 A100 上实测的 Triton 研究原型。最新结果见 [PRR 基线接口对齐](docs/paper_baseline_results.md)、[CUDA profiling](docs/profiling.md)；此前数字保留在 [第二轮实验报告](docs/round2_results.md)、[第一轮实验报告](docs/results.md) 与 [results](results/)。尚未完成模型端到端加速。
+
+2026-11-09 已迁入固定 A100 训练容器，最终重测使用空闲 GPU 2 并附宿主机进程采样。按 PRR Table 3 的形状补测真实 FlashInfer BlockSparseAttention，75 个测点、450 项校验通过；硬件仍是 A100，不能当作作者 H100 内核的复现。新增六条 CUDA 时间线、相同工作量顺序/重叠对照和提交顺序诊断。修复准备、归并与保护性回退仍使当前完整路径慢于直接串行基线。
+
+HiSparse 部分完成 [CPU 缓存轨迹回放](docs/hisparse_trace.md)与[接入设计](docs/hisparse_integration.md)。逐头独立缓存、容量至少 K 的设定中，上一步选集已驻留；其他预取策略可能减少需求缺块，却都增加总搬运。下一步优先尝试驻留预测块的提前计算。当前没有接入原生 HiSparse 搬运或模型解码，逻辑计数不是 H2D 加速证据。
 
 **Qwen 在这些实验中仍执行稠密注意力。** 回放提取其 Q/K/V，再额外运行本项目的 Quest 风格块级 min/max 打分与 `torch.topk`；这不是 Qwen 原生的稀疏选择器，也没有接入模型的实际注意力输出。报告中的“完整路径”仅包含回放的选择、推测与修复，不包含整层或整模型解码。元数据构建与预测 ID 构造不计时；预测采用上一步选择列表，没有实现 PRR 的 EMA。当前结果不能证明稀疏模型吞吐或任务准确率改善。
 

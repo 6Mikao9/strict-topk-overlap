@@ -1,0 +1,139 @@
+digraph dot {
+subgraph cluster_4 {
+label="graph_4" graph[style="dashed"];
+"graph_4_node_0"[style="bold" shape="record" label="{KERNEL
+| {ID | 0 (topoId: 14) | _indexer_scores\<\<\<256,128,2304\>\>\>}
+| {{node handle | func handle} | {handle_001 | handle_002}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_1"[style="bold" shape="record" label="{KERNEL
+| {ID | 1 (topoId: 13) | _ZN2at6native6sbtopk10gatherTopKIfjLi1ELb0EEEvNS_4cuda6detail10TensorInfoIKT_T0_EES8_S8_bS8_S8_NS5_IS6_S8_EES8_NS5_IlS8_EES8_PS6_\<\<\<1,1024,0\>\>\>}
+| {{node handle | func handle} | {handle_003 | handle_004}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_2"[style="bold" shape="record" label="{KERNEL
+| {ID | 2 (topoId: 12) | _ZN2at6native27unrolled_elementwise_kernelIZZZNS0_23direct_copy_kernel_cudaERNS_18TensorIteratorBaseEENKUlvE1_clEvENKUlvE1_clEvEUliE_St5arrayIPcLm2EELi4E23TrivialOffsetCalculatorILi1EjESB_NS0_6memory12LoadWithCastILi1EEENSC_13StoreWithCastILi1EEEEEviT_T0_T2_T3_T4_T5_\<\<\<1,128,0\>\>\>}
+| {{node handle | func handle} | {handle_005 | handle_006}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_3"[style="bold" shape="record" label="{KERNEL
+| {ID | 3 (topoId: 11) | _ZN2at6native18elementwise_kernelILi128ELi2EZNS0_22gpu_kernel_impl_nocastIZZZNS0_23direct_copy_kernel_cudaERNS_18TensorIteratorBaseEENKUlvE1_clEvENKUlvE1_clEvEUliE_EEvS4_RKT_EUliE_EEviT1_\<\<\<48,128,0\>\>\>}
+| {{node handle | func handle} | {handle_007 | handle_008}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_4"[style="bold" shape="record" label="{KERNEL
+| {ID | 4 (topoId: 10) | _pages\<\<\<2,128,2048\>\>\>}
+| {{node handle | func handle} | {handle_009 | handle_010}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_5"[style="bold" shape="record" label="{KERNEL
+| {ID | 5 (topoId: 9) | _ZN10flashinfer34BatchPrefillWithPagedKVCacheKernelINS_12KernelTraitsILNS_8MaskModeE0ELj16ELj1ELj1ELj16ELj16ELj1ELj4ELNS_15PosEncodingModeE0E6__halfS4_S4_fiNS_16DefaultAttentionILb0ELb0ELb0ELb0EEEEE11PagedParamsEEvT0_\<\<\<216,\{32,1,4\},73728\>\>\>}
+| {{node handle | func handle} | {handle_011 | handle_012}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_6"[style="bold" shape="record" label="{KERNEL
+| {ID | 6 (topoId: 8) | _ZN10flashinfer41PersistentVariableLengthMergeStatesKernelILj8ELj32ELj4ELj4E6__halfS1_iEEvPT3_PfPT5_PT4_S4_jPjj\<\<\<108,\{32,4\},8704\>\>\>}
+| {{node handle | func handle} | {handle_013 | handle_014}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_7"[style="bold" shape="record" label="{KERNEL
+| {ID | 7 (topoId: 7) | _classify\<\<\<\{2,58\},128,2048\>\>\>}
+| {{node handle | func handle} | {handle_015 | handle_016}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_8"[style="bold" shape="record" label="{KERNEL
+| {ID | 8 (topoId: 6) | _compact\<\<\<\{2,2\},128,4096\>\>\>}
+| {{node handle | func handle} | {handle_017 | handle_018}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_9"[style="bold" shape="record" label="{KERNEL
+| {ID | 9 (topoId: 5) | _tables\<\<\<58,128,8\>\>\>}
+| {{node handle | func handle} | {handle_019 | handle_020}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_10"[style="bold" shape="record" label="{KERNEL
+| {ID | 10 (topoId: 4) | _ZN10flashinfer34BatchPrefillWithPagedKVCacheKernelINS_12KernelTraitsILNS_8MaskModeE0ELj16ELj1ELj1ELj16ELj16ELj1ELj4ELNS_15PosEncodingModeE0E6__halfS4_S4_fiNS_16DefaultAttentionILb0ELb0ELb0ELb0EEEEE11PagedParamsEEvT0_\<\<\<216,\{32,1,4\},73728\>\>\>}
+| {{node handle | func handle} | {handle_021 | handle_012}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_11"[style="bold" shape="record" label="{KERNEL
+| {ID | 11 (topoId: 3) | _ZN10flashinfer41PersistentVariableLengthMergeStatesKernelILj8ELj32ELj4ELj4E6__halfS1_iEEvPT3_PfPT5_PT4_S4_jPjj\<\<\<756,\{32,4\},8704\>\>\>}
+| {{node handle | func handle} | {handle_022 | handle_014}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_12"[style="bold" shape="record" label="{KERNEL
+| {ID | 12 (topoId: 2) | _merge\<\<\<24,128,4096\>\>\>}
+| {{node handle | func handle} | {handle_023 | handle_024}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_13"[style="bold" shape="record" label="{KERNEL
+| {ID | 13 (topoId: 1) | _fallback_parts\<\<\<\{24,16\},128,4096\>\>\>}
+| {{node handle | func handle} | {handle_025 | handle_026}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_14"[style="bold" shape="record" label="{KERNEL
+| {ID | 14 (topoId: 0) | _fallback_merge\<\<\<24,128,2048\>\>\>}
+| {{node handle | func handle} | {handle_027 | handle_028}}
+| {accessPolicyWindow | {base_ptr | num_bytes | hitRatio | hitProp | missProp} | {0x0000000000000000 | 0 | 0.000000 | N | N}}
+| {cooperative | 0}
+| {priority | 0}
+}"];
+
+"graph_4_node_0" -> "graph_4_node_1" [headlabel=0];
+"graph_4_node_1" -> "graph_4_node_2" [headlabel=0];
+"graph_4_node_2" -> "graph_4_node_3" [headlabel=0];
+"graph_4_node_3" -> "graph_4_node_4" [headlabel=0];
+"graph_4_node_4" -> "graph_4_node_5" [headlabel=0];
+"graph_4_node_5" -> "graph_4_node_6" [headlabel=0];
+"graph_4_node_6" -> "graph_4_node_7" [headlabel=0];
+"graph_4_node_7" -> "graph_4_node_8" [headlabel=0];
+"graph_4_node_8" -> "graph_4_node_9" [headlabel=0];
+"graph_4_node_9" -> "graph_4_node_10" [headlabel=0];
+"graph_4_node_10" -> "graph_4_node_11" [headlabel=0];
+"graph_4_node_11" -> "graph_4_node_12" [headlabel=0];
+"graph_4_node_12" -> "graph_4_node_13" [headlabel=0];
+"graph_4_node_13" -> "graph_4_node_14" [headlabel=0];
+}
+}
